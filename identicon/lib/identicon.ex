@@ -19,6 +19,11 @@ defmodule Identicon do
     %Identicon.Image{image | color: {r, g, b}}
   end
 
+  def mirror_row(row) do
+    [first, second | _tail] = row
+    row ++ [second, first]
+  end
+
   def hash_input(input) do
     hex =
       :crypto.hash(:md5, input)
