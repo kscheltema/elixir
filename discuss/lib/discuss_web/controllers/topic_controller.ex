@@ -1,4 +1,4 @@
 defmodule DiscussWeb.TopicController do
-  def new() do
+  def new(conn, params) do
   end
 end
