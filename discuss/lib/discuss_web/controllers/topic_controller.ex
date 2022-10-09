@@ -2,7 +2,7 @@ defmodule DiscussWeb.TopicController do
   use DiscussWeb, :controller
   use DiscussWeb, :view
 
-  alias DiscussWeb.Topic
+  alias Discuss.Topic
 
   def new(conn, _params) do
     # %Topic is the struct >>>> %{} is the empty params
@@ -14,6 +14,9 @@ defmodule DiscussWeb.TopicController do
   def create(conn, %{"topic" => topic}) do
     changeset = Topic.changeset(%Topic{}, topic)
 
-    Repo.insert(changeset)
+    case Repo.insert(changeset) do
+      {:ok, post} -> IO.inspect(post)
+      {:error, changeset} -> IO.inspect(changeset)
+    end
   end
 end
