@@ -29,6 +29,7 @@ defmodule Calculator do
   def sub(server_pid, value), do: send(server_pid, {:sub, value})
   def mul(server_pid, value), do: send(server_pid, {:mul, value})
   def div(server_pid, value), do: send(server_pid, {:div, value})
+  def stop(server_pid), do: send(server_pid, {:exit})
 
   defp loop(current_value) do
     new_value =
@@ -48,6 +49,9 @@ defmodule Calculator do
 
         {:div, value} ->
           current_value / value
+
+        {:exit} ->
+          exit(:normal)
 
         _ ->
           IO.puts("invalid message")
