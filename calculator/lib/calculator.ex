@@ -5,12 +5,12 @@ defmodule Calculator do
 
   @doc """
   Hello world.
-
+  
   ## Examples
-
+  
       iex> Calculator.hello()
       :world
-
+  
   """
   def start do
     spawn(fn -> loop(0) end)
@@ -49,6 +49,9 @@ defmodule Calculator do
 
         {:div, value} ->
           current_value / value
+
+        {:reset} ->
+          current_value * 0
 
         {:exit} ->
           exit(:normal)
