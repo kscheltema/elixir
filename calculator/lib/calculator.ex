@@ -29,6 +29,7 @@ defmodule Calculator do
   def sub(server_pid, value), do: send(server_pid, {:sub, value})
   def mul(server_pid, value), do: send(server_pid, {:mul, value})
   def div(server_pid, value), do: send(server_pid, {:div, value})
+  def reset(server_pid), do: send(server_pid, {:reset})
   def stop(server_pid), do: send(server_pid, {:exit})
 
   defp loop(current_value) do
@@ -51,7 +52,7 @@ defmodule Calculator do
           current_value / value
 
         {:reset} ->
-          current_value * 0
+          ^current_value = 0
 
         {:exit} ->
           exit(:normal)
