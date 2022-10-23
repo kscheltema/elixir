@@ -1,16 +1,30 @@
 defmodule Calculator do
   @moduledoc """
-  Documentation for `Calculator`.
+  Provides methods for operating a Calculator
   """
 
   @doc """
-  Hello world.
+  The Calculator functions includes `stop` that leaves the program, `start` that starts up the program, `reset` the changes the saved variable to 0, `view` that displays the variable in the terminal, `mul` that is a short-hand version of Multiplication, `div` that is a short-hand version of Division, `add` that is a short-hand version of Addition, `sub` that is a short-hand version of Subtraction.
   
   ## Examples
   
-      iex> Calculator.hello()
-      :world
+      iex(1)> pid = Calculator.start
+      #PID<0.159.0>
   
+      iex(2)> Calculator.add(pid, 5)
+      {:add, 5}
+  
+      iex(3)> Calculator.sub(pid, 1)
+      {:sub, 1}
+  
+      iex(4)> Calculator.mul(pid, 2)
+      {:mul, 2}
+  
+      iex(5)> Calculator.div(pid, 3)
+      {:div, 3}
+  
+      iex(6)> Calculator.view(pid)
+      2.6666666666666665
   """
   def start do
     spawn(fn -> loop(0) end)
