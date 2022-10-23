@@ -25,6 +25,16 @@ defmodule Calculator do
   
       iex(6)> Calculator.view(pid)
       2.6666666666666665
+  
+      iex(2)> Calculator.add(pid,4)
+      {:add, 4}
+      iex(3)> Calculator.reset(pid)
+      {:reset}
+      iex(4)> Calculator.view(pid)
+      0
+  
+      iex(5)> Calculator.stop(pid)
+      {:exit}
   """
   def start do
     spawn(fn -> loop(0) end)
@@ -66,7 +76,7 @@ defmodule Calculator do
           current_value / value
 
         {:reset} ->
-          ^current_value = 0
+          current_value * 0
 
         {:exit} ->
           exit(:normal)
