@@ -5,7 +5,8 @@ defmodule GuessingGame do
 #"bigger" -> bigger(low, high)
 #"smaller" -> smaller(low, high)
 #anything else -> tell the user to enter a valid response
-  def mid do
 
+  def mid(low, high) do
+    div(low + high, 2)
   end
 end
