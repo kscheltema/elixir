@@ -7,6 +7,6 @@ defmodule GuessingGame do
 #anything else -> tell the user to enter a valid response
 
   def mid(low, high) do
-    div(low + high, 2)
+    div(low + high,2)
   end
 end
