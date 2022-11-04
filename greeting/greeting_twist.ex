@@ -1,6 +1,6 @@
 defmodule GreetingTwist do
   def greeting do
-   answer = IO.gets().trim "Hello, what is your name?"
+   answer = IO.gets "Hello, what is your name?"
    case String.trim(answer) do
      "Kobus" -> replyK = IO.gets "Why hello there are you my creator?\n"
       case String.trim(replyK) do
