@@ -1,2 +1,3 @@
 filename = IO.gets("File to count the words from: ") |> String.trim()
-IO.puts(filename)
+body = File.read!(filename) |> String.split()
+IO.inspect(body)
