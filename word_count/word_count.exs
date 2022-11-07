@@ -5,10 +5,12 @@ case String.trim(option) do
   |> String.split(~r{(\\n|[^\w'])+})
   |> Enum.filter(fn x -> x != "" end)
   words |> Enum.count() |> IO.puts()
+  #IO.puts(words)
   "characters" -> characters = File.read!(filename)
   |> String.split(~r{[^\w]+})
   |> Enum.filter(fn x -> x != "" end)
   characters |> Enum.count() |> IO.puts()
+  #IO.puts(characters)
   "lines"
   _ -> ~s{Sorry that is not a valid option}
 end
