@@ -7,10 +7,13 @@ case String.trim(option) do
   words |> Enum.count() |> IO.puts()
   #IO.puts(words)
   "characters" -> characters = File.read!(filename)
-  |> String.split(~r{[^\w]+})
+  |> String.split("")
   |> Enum.filter(fn x -> x != "" end)
   characters |> Enum.count() |> IO.puts()
   #IO.puts(characters)
-  "lines"
+  "lines" -> lines = File.read!(filename)
+  |> String.split(~r{\n+})
+  |> Enum.filter(fn x -> x != "" end)
+  lines |> Enum.count() |> IO.puts()
   _ -> ~s{Sorry that is not a valid option}
 end
