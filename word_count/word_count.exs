@@ -15,5 +15,5 @@ case String.trim(option) do
   |> String.split(~r{\n+})
   |> Enum.filter(fn x -> x != "" end)
   lines |> Enum.count() |> IO.puts()
-  _ -> ~s{Sorry that is not a valid option}
+  _ -> IO.puts(~s{Sorry that is not a valid option})
 end
