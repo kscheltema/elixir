@@ -5,10 +5,10 @@ defmodule MinimalTodo do
     # parse the data
     # ask user for command
     # read, add, delete, load, save ...todo
-    filename = IO.gets(~s{Name the .csv file to load: })
-    |> String.trim()
+    filename = IO.gets(~s{Name the .csv file to load: }) |> String.trim()
     read(filename)
   end
+
   def read(filename) do
     case File.read(filename) do
       {:ok, body}       -> body
